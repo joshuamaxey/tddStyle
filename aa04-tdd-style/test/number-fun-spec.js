@@ -11,7 +11,7 @@ describe('returnsThree function', function() {
 describe('reciprocal function', function() {
     it('should return the reciprocal of a number', function() {
         let n1 = 5;
-        let n2 = -3
+        let n2 = 100;
 
         expect(reciprocal(n1)).to.equal(1/n1);
         expect(reciprocal(n2)).to.equal(1/n2);
@@ -26,5 +26,12 @@ describe('reciprocal function', function() {
         expect(() => reciprocal(string)).to.throw(TypeError);
         expect(() => reciprocal(object)).to.throw(TypeError);
         expect(() => reciprocal(boolean)).to.throw(TypeError);
+    });
+
+    it('should throw a RangeError if number is not 1 to 1,000,000', function() {
+        let num1 = 0;
+        let num2 = 2000000;
+        expect(() => reciprocal(num1)).to.throw(RangeError);
+        expect(() => reciprocal(num2)).to.throw(RangeError);
     })
 });
