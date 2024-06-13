@@ -9,4 +9,9 @@ describe('reverseString function', function () {
         let string = "string"
         expect(reverseString(string)).to.equal("gnirts");
     });
+    it('should throw a TypeError if input is not a string', function () {
+
+        let input = 45;
+        expect(() => reverseString(input)).to.throw(TypeError);
+    })
 });
