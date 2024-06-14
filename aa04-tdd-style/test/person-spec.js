@@ -4,7 +4,7 @@ const { chai, expect } = require('chai')
 const Person = require('../problems/person');
 
 describe('Person class', function() {
-
+    //before each
 
 
     it('should create successfully', function() {
@@ -27,17 +27,18 @@ describe('Person class', function() {
         let person1 = new Person("Robert", 40);
         let person2 = new Person("Joshua", 30);
         expect(person1.visit(person2)).to.equal("Robert visited Joshua")
-    })
+    });
 
     it("update(obj) should throw a TypeError if obj is not an object", function() {
         let person1 = new Person("Robert", 40)
         let number = 50
         let string = "Joshua"
         let boolean = false
-
-        expect(() => person1.update(number)).to.throw(TypeError)
-        expect(() => person1.update(string)).to.throw(TypeError)
-        expect(() => person1.update(boolean)).to.throw(TypeError)
+        let array = [1,2,3];
+        expect(() => person1.update(number)).to.throw(TypeError);
+        expect(() => person1.update(string)).to.throw(TypeError);
+        expect(() => person1.update(boolean)).to.throw(TypeError);
+        expect(() => person1.update(array)).to.throw(TypeError);
     });
 
     it("update(obj) should throw a TypeError if obj does not have .name and .age properties", function() {
